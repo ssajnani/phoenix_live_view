@@ -2469,7 +2469,10 @@ export class View {
     this.onChannel("redirect", ({to, flash}) => this.onRedirect({to, flash}))
     this.onChannel("live_patch", (redir) => this.onLivePatch(redir))
     this.onChannel("live_redirect", (redir) => this.onLiveRedirect(redir))
-    this.channel.onError(reason => this.onError(reason))
+    this.channel.onError(reason => {
+      console.trace();
+      this.onError(reason);
+    })
     this.channel.onClose(reason => this.onClose(reason))
   }
 
