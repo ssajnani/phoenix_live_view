@@ -2470,8 +2470,8 @@ export class View {
     this.onChannel("live_patch", (redir) => this.onLivePatch(redir))
     this.onChannel("live_redirect", (redir) => this.onLiveRedirect(redir))
     this.channel.onError(reason => {
-      console.trace();
-      this.onError(reason);
+      console.trace()
+      this.onError(reason)
     })
     this.channel.onClose(reason => this.onClose(reason))
   }
@@ -2543,7 +2543,7 @@ export class View {
   }
 
   onError(reason){
-    console.trace();
+    console.trace()
     this.onClose(reason)
     this.log("error", () => ["view crashed", reason])
     if(!this.liveSocket.isUnloaded()){ this.displayError() }
