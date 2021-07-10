@@ -2543,6 +2543,7 @@ export class View {
   }
 
   onError(reason){
+    console.trace();
     this.onClose(reason)
     this.log("error", () => ["view crashed", reason])
     if(!this.liveSocket.isUnloaded()){ this.displayError() }
